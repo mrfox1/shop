@@ -4,13 +4,14 @@
 <% else %>
   <p>Количество товара в корзине <%= @count_of_products %> </p>
 <% end %>
-
-<% @products_in_cart.each do |product| %>
-  <%= product %>
+<% if cookies[:cart].present? %>
+  <% @products_in_cart.each do |product| %>
+    <%= product %>
+  <% end %>
+  <br>
+  <% @prices_in_cart.each do |price| %>
+    <%= price %>
+  <% end %>
+  <br>
+  <p>Общая сумма корзины <%= @sum %></p>
 <% end %>
-<br>
-<% @prices_in_cart.each do |price| %>
-  <%= price %>
-<% end %>
-<br>
-<p>Общая сумма корзины <%= @sum %></p>
