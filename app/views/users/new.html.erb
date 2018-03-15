@@ -1,0 +1,64 @@
+<h1>Registration</h1>
+
+
+<%= form_for(@user) do |f| %>
+
+  <div class="field">
+    <%= f.label :Имя %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Фамилия %>
+    <%= f.text_field :sname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Телефон %>
+    <%= f.phone_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Страна %>
+    <%= f.text_field :country %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Город %>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Улица %>
+    <%= f.text_field :street %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Дом %>
+    <%= f.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Квартира %>
+    <%= f.text_field :appartament %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Индекс %>
+    <%= f.text_field :postindex %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

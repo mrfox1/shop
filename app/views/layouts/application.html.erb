@@ -9,6 +9,30 @@
   </head>
 
   <body>
+  <div class = "flex-container">
+    <div class = "menu">
+      <p>
+        <%= link_to 'На главную', root_path %>
+      </p>
+      <%unless current_user%>
+        <p>
+          <%= link_to 'Registration', registration_path %>
+        </p>
+        <p>
+          <%= link_to 'Log In', sessions_login_path %>
+        </p>
+      <%else%>
+        <p>
+          <%= link_to 'Log Out', sessions_logout_path %>
+        </p>
+      <%end%>
+    </div>
+
+    <div class ="user_name">
+      <%= current_user.name if current_user%>
+    </div>
+
     <%= yield %>
+  </div>
   </body>
 </html>

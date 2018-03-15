@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'sessions/logout'
+
+  get 'sessions/login'
+
+  post 'sessions' => 'sessions#create'
+
+  get 'registration' => 'users#new', as: 'registration'
+
+  post 'users' => 'users#create'
+
   resources :products do
     member do
       post 'add_to_cart'
