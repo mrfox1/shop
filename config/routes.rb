@@ -17,5 +17,6 @@ Rails.application.routes.draw do
 
   root 'products#index'
   get 'cart' => 'products#show_cart'
+  get 'clear_cart' => 'products#clear_cart'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
