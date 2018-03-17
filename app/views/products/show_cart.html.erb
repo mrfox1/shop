@@ -22,5 +22,10 @@
     Общая сумма корзины <%= @sum %>
   </p>
   <%= link_to 'Очистить корзину', clear_cart_path %>
+  <% if current_user.present? %>
+    <%= link_to 'Оформить заказ', orders_create_path %>
+  <% else %>
+    <%= link_to 'Оформить заказ', registration_path %>
+  <% end %>
 <% end %>
 
