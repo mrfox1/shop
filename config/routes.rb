@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   get 'orders/create'
 
+  get 'orders/show'
+
+  get 'orders/confirm_orders'
+
   get 'sessions/logout'
 
   get 'sessions/login'
@@ -20,7 +24,6 @@ Rails.application.routes.draw do
       post 'add_to_cart'
     end
   end
-  resources :orders
 
   root 'products#index'
   get 'cart' => 'products#show_cart'

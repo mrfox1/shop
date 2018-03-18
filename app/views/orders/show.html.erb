@@ -1,0 +1,21 @@
+<p>Дата заказа <%= @date %></p>
+<table>
+  <thead>
+    <tr>
+      <th> Товар </th>
+      <th> Количество </th>
+      <th> Цена </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= find_product_in_cart(order.product_id) %></td>
+        <td><%= order.amount %></td>
+        <td><%= order.sum %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<p>Обцая цена заказа <%= @sum %></p>
+<%= link_to 'Подтвертить', orders_confirm_orders_path %>
