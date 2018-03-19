@@ -9,23 +9,30 @@
   </p>
 <% end %>
 <% if cookies[:cart].present? %>
-  <% cookies[:cart].split(',').each do |id| %>
-    <div id = "product_in_cart">
-      <%= find_product_in_cart(id) %>
-      <%= find_products_price_in_cart(id) %>
+  <% if current_user.present? %>
+    <%= form_tag(orders_create_path, method: 'get') do %>
+      <% cookies[:cart].split(',').each do |id| %>
+        <%= find_product_in_cart(id).to_s %>
+        <%= find_products_price_in_cart(id).to_s %>
+        <%=label_tag 'Введите количестов товара' %>
+        <%= text_field_tag id, '1', maxlength: 20%>
+      <% end %>
+      <br>
+      <%= submit_tag ('Оформить заказ')%>
+    <% end %>
+  <% else %>
+    <% cookies[:cart].split(',').each do |id| %>
+      <%= find_product_in_cart(id).to_s %>
+      <%= find_products_price_in_cart(id).to_s %>
       <%=label_tag 'Введите количестов товара' %>
-      <%= text_field_tag 'amount','1', maxlength: 20%>
-    </div>
+      <%= text_field_tag id ,'1', maxlength: 20%>
+    <% end %>
+    <%= button_to 'Оформить заказ', registration_path,  method: :get%>
   <% end %>
   <br/>
   <p>
     Общая сумма корзины <%= @sum %>
   </p>
   <%= link_to 'Очистить корзину', clear_cart_path %>
-  <% if current_user.present? %>
-    <%= link_to 'Оформить заказ', orders_create_path %>
-  <% else %>
-    <%= link_to 'Оформить заказ', registration_path %>
-  <% end %>
 <% end %>
 

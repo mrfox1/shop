@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
       @order.date = Date.today
       @order.product_id = id
       @order.user_id = current_user.id
-      @order.amount = 1
+      @order.amount = params[id]
       @order.sum = @price * @order.amount
       @order.confirm = false
       @order.save!
