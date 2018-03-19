@@ -54,3 +54,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'annotate'
 gem 'rb-readline'
 gem 'acts_as_list'
+gem 'activeadmin'
