@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
+
   get 'orders/index'
 
   get 'orders/new'
