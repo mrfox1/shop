@@ -1,0 +1,2 @@
+module Concerns::CategoriesHelper
+end

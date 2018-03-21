@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :categories, only: :show
+
   root 'products#index'
   get 'cart' => 'products#show_cart'
   get 'clear_cart' => 'products#clear_cart'

@@ -13,5 +13,9 @@ class ApplicationController < ActionController::Base
     Product.find(id).price
   end
 
-  helper_method :current_user, :find_product_in_cart, :find_products_price_in_cart
+  def get_categories
+    @categories = Category.all.sorted
+  end
+
+  helper_method :current_user, :find_product_in_cart, :find_products_price_in_cart, :get_categories
 end
