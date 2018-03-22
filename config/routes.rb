@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'categories/show'
+
   ActiveAdmin.routes(self)
 
   get 'orders/index'
@@ -27,7 +29,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories, only: :show
+  resources :categories, only: [:show, :index]
 
   root 'products#index'
   get 'cart' => 'products#show_cart'

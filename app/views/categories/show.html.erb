@@ -1,1 +1,4 @@
-<%=  %>
+<h1>Категория <%= find_category(params[:id]) %> </h1>
+<% @products.each do |product| %>
+  <%= find_products(product.product_id) %>
+<% end %>

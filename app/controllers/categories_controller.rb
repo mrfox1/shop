@@ -1,8 +1,10 @@
-class Concerns::CategoriesController < ApplicationController
+class CategoriesController < ApplicationController
+  def index
+     @categories = Category.all.sorted
+  end
 
   def show
-    @category = Category.find(params[:id])
-    #product_id = ProductCategory.all.where({category_id: category_id })
-    #@products = Product.all.where({id: product_id})
+    category_id = params[:id]
+    @products = ProductCategory.all.where({category_id: category_id})
   end
 end
