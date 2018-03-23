@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.role = 'user'
     if @user.save
       redirect_to :back
       current_user
@@ -17,6 +18,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :sname, :email, :password, :phone, :country, :city,
-                                 :street, :number, :appartament, :postindex)
+                                 :street, :number, :appartament, :postindex, :role)
   end
 end

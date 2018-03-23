@@ -16,6 +16,7 @@
 #  postindex       :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  role            :string
 #
 
 class User < ApplicationRecord
