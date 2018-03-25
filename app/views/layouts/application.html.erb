@@ -9,34 +9,37 @@
   </head>
 
   <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
-  <div class = "flex-container">
-    <div class = "menu">
-      <p>
-        <%= link_to 'На главную', root_path %>
-      </p>
-      <%unless current_user%>
-        <p>
-          <%= link_to 'Registration', registration_path %>
-        </p>
-        <p>
-          <%= link_to 'Log In', sessions_login_path %>
-        </p>
-      <%else%>
-        <p>
-          <%= link_to 'Log Out', sessions_logout_path %>
-        </p>
-      <%end%>
-    </div>
+  <div class="notice"><%= notice %></div>
+  <div class="alert"><%= alert %></div>
 
-    <div class ="user_name">
-      <%= current_user.name if current_user%>
+  <nav class = "navbar  navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class = "nav navbar-nav">
+          <li class="active">
+            <%= link_to 'На главную', root_path, class: "navbar-link" %>
+          </li>
+          <%unless current_user%>
+          <li class="active">
+            <%= link_to 'Registration', registration_path, class: "navbar-link" %>
+          </li>
+          <li class="active">
+            <%= link_to 'Log In', sessions_login_path, class: "navbar-link" %>
+          </li>
+          <%else%>
+          <li class="active">
+            <%= link_to 'Log Out', sessions_logout_path, class: "navbar-link" %>
+          </li>
+          <%end%>
+          <li class="active">
+            <%= link_to current_user.name, class: "navbar_link" if current_user%>
+          </li>
+        </ul>
+      </div>
     </div>
-    <br>
+  </nav>
     <%= yield %>
 
-  </div>
   </body>
 </html>
