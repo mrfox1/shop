@@ -1,13 +1,9 @@
-<p>
-  Категории:
-</p>
-
-<%= render 'categories/categories' %>
-<p id="notice">
-  <%= notice %>
-</p>
+<div class="categories">
+  <p>
+    Категории:
+  </p>
+  <%= render 'categories/categories' %>
+  <br>
+</div>
 <%= render @products %>
 <br>
-<%= cookies[:cart] %>
-<br>
-<%= link_to 'Корзина', cart_path%>

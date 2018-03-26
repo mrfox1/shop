@@ -3,43 +3,41 @@
   <head>
     <title>Shop</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-
-  <div class="notice"><%= notice %></div>
-  <div class="alert"><%= alert %></div>
-
-  <nav class = "navbar  navbar-default" role="navigation">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class = "nav navbar-nav">
-          <li class="active">
-            <%= link_to 'На главную', root_path, class: "navbar-link" %>
-          </li>
-          <%unless current_user%>
-          <li class="active">
-            <%= link_to 'Registration', registration_path, class: "navbar-link" %>
-          </li>
-          <li class="active">
-            <%= link_to 'Log In', sessions_login_path, class: "navbar-link" %>
-          </li>
-          <%else%>
-          <li class="active">
-            <%= link_to 'Log Out', sessions_logout_path, class: "navbar-link" %>
-          </li>
-          <%end%>
-          <li class="active">
-            <%= link_to current_user.name, class: "navbar_link" if current_user%>
-          </li>
-        </ul>
+    <nav class = "navbar  navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class = "nav navbar-nav">
+            <li class="active">
+              <%= link_to 'На главную', root_path, class: "navbar-link" %>
+            </li>
+            <li class="active">
+              <%= link_to 'Корзина', cart_path, class: "navbar-link" %>
+            </li>
+            <%unless current_user%>
+              <li class="active">
+                <%= link_to 'Registration', registration_path, class: "navbar-link" %>
+              </li>
+              <li class="active">
+                <%= link_to 'Log In', sessions_login_path, class: "navbar-link" %>
+              </li>
+            <%else%>
+              <li class="active">
+                <%= link_to 'Log Out', sessions_logout_path, class: "navbar-link" %>
+              </li>
+            <%end%>
+            <li class="active">
+              <%= link_to current_user.name, class: "navbar_link" if current_user%>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+    <div class="notice"><%= notice %></div>
+    <div class="alert"><%= alert %></div>
     <%= yield %>
-
   </body>
 </html>

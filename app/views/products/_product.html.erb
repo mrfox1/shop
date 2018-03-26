@@ -1,6 +1,14 @@
-<%= product.name %>
-<br/>
-<%= number_to_currency(product.price, unit: 'грн.', format: '%n %u') %>
-<br/>
-<%= button_to 'Добавить в корзину', add_to_cart_product_path(product) %>
-<br/>
+<div class="col-lg-3 col-md-6 mb-4">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title"><%= product.name %></h3>
+      <br/>
+      <%= number_to_currency(product.price, unit: 'грн.', format: '%n %u') %>
+      <br/>
+    </div>
+    <div class="card-footer">
+      <%= button_to 'Добавить в корзину', add_to_cart_product_path(product), class: "btn btn-primary" %>
+      <br>
+    </div>
+  </div>
+</div>

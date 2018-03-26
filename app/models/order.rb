@@ -14,7 +14,6 @@
 #
 
 class Order < ApplicationRecord
-  has_many :products
   belongs_to :user
 
   scope :new_order, -> {Order.where({date: Date.today})}

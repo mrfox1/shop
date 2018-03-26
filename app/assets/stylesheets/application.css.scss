@@ -1,2 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.col-lg-3 {
+  width: 20%;
+  position: center;
+  left: 8%;
+}
+
+.categories {
+  float: left;
+  width: 10%;
+  height: 100vh;
+}
