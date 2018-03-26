@@ -8,9 +8,12 @@
 #  price       :decimal(8, 2)    default(0.0)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  image       :string
 #
 
 class Product < ApplicationRecord
   has_many :product_categories
   has_many :categories, through: :product_categories
+
+  #mount_uploader :image, ProductImageUploader
 end

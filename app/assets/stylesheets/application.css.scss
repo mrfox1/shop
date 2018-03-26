@@ -12,3 +12,9 @@
   width: 10%;
   height: 100vh;
 }
+
+@media (min-width: 0px) and (max-width: 320px){
+  .categories {
+    display: block;
+  }
+}
