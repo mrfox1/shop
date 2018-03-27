@@ -15,5 +15,5 @@ class Product < ApplicationRecord
   has_many :product_categories
   has_many :categories, through: :product_categories
 
-  #mount_uploader :image, ProductImageUploader
+  mount_uploader :image, ProductImageUploader
 end

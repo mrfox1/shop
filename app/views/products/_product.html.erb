@@ -3,6 +3,8 @@
     <div class="card-body">
       <h3 class="card-title"><%= product.name %></h3>
       <br/>
+      <%= image_tag product.image_url(:thumb) unless product.image.blank? if product.image %>
+      <br/>
       <%= number_to_currency(product.price, unit: 'грн.', format: '%n %u') %>
       <br/>
     </div>
