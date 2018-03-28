@@ -2,6 +2,13 @@
 <h2>
   <%= @product.name %>
 </h2>
+  <br/>
+  <%= link_to '1', vote_product_path(@product, vote: 1), method: :post, remote: true %>
+  <%= link_to '2', vote_product_path(@product, vote: 2), method: :post,remote: true %>
+  <%= link_to '3', vote_product_path(@product, vote: 3), method: :post,remote: true %>
+  <%= link_to '4', vote_product_path(@product, vote: 4), method: :post,remote: true %>
+  <%= link_to '5', vote_product_path(@product, vote: 5), method: :post,remote: true %>
+  <br/>
 <%= image_tag @product.image_url %>
 <h2>
   Цена: <%= number_to_currency(@product.price, unit: 'грн.', format: '%n %u') %>

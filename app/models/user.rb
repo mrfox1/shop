@@ -24,6 +24,7 @@ class User < ApplicationRecord
 
   has_many :orders
   has_many :comments
+  has_many :assessments
 
   validates :password_digest, length:{minimum: 6}
   validates_uniqueness_of :email

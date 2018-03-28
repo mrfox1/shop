@@ -48,4 +48,35 @@ class ProductsController < ApplicationController
       true
     end
   end
+
+  def vote
+    if current_user && can_user_vote?
+      case params[:vote]
+        when '1'
+          value = 1
+        when '2'
+          value = 2
+        when '3'
+          value = 3
+        when '4'
+          value = 4
+        when '5'
+          value = 5
+      end
+      @product = Product.find(params[:id])
+      assessment = Assessment.new
+      assessment.user = current_user
+      assessment.product = @product
+      assessment.value = value
+      assessment.save
+    else redirect_to :back, notice: 'Вы не можете поставить оценку'
+    end
+  end
+
+  private
+
+  def can_user_vote?
+    @rated_by = Assessment.where(user_id: current_user.id, product_id: params[:id])
+    @rated_by.blank?
+  end
 end

@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resources :comments
     member do
       post 'add_to_cart'
+      post 'vote'
     end
   end
 

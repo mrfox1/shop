@@ -9,12 +9,14 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  image       :string
+#  rating      :float
 #
 
 class Product < ApplicationRecord
   has_many :product_categories
   has_many :categories, through: :product_categories
   has_many :comments
+  has_many :assessments
 
   mount_uploader :image, ProductImageUploader
 end
