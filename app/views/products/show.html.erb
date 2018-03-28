@@ -1,0 +1,28 @@
+<div class="product">
+<h2>
+  <%= @product.name %>
+</h2>
+<%= image_tag @product.image_url %>
+<h2>
+  Цена: <%= number_to_currency(@product.price, unit: 'грн.', format: '%n %u') %>
+</h2>
+<%= button_to 'Добавить в корзину', add_to_cart_product_path(@product), class: "btn btn-primary" %>
+</div>
+<div class="description">
+<p>
+  <%= @product.description %>
+</p>
+<h2>
+  Отзывы:
+</h2>
+<div class="comments">
+  <%= render @product.comments %>
+</div>
+<% if current_user %>
+  <h2>
+    Добавить отзыв:
+  </h2>
+  <%= render 'comments/form_for_comments' %>
+<% end %>
+</div>
+<%= link_to 'Назад', root_path %>

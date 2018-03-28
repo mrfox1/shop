@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   post 'users' => 'users#create'
 
   resources :products do
+    resources :comments
     member do
       post 'add_to_cart'
     end

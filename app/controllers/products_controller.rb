@@ -4,6 +4,14 @@ class ProductsController < ApplicationController
     @categories = Category.all.sorted
   end
 
+  def new
+    @product = Product.new
+  end
+
+  def show
+    @product = Product.find(params[:id])
+  end
+
   def add_to_cart
     product_id = params[:id]
     if cookies[:cart].present? == false

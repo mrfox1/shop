@@ -23,6 +23,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :orders
+  has_many :comments
 
   validates :password_digest, length:{minimum: 6}
   validates_uniqueness_of :email

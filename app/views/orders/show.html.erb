@@ -10,7 +10,7 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= find_products(order.product_id) %></td>
+        <td><%= find_products(order.product_id).name.to_s %></td>
         <td><%= order.amount %></td>
         <td><%= order.sum %></td>
       </tr>

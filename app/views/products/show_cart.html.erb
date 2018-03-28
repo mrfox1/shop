@@ -12,8 +12,8 @@
   <% if current_user.present? %>
     <%= form_tag(orders_create_path, method: 'get') do %>
       <% cookies[:cart].split(',').each do |id| %>
-        <%= find_products(id).to_s %>
-        <%= find_products_price(id).to_s %>
+        <%= find_products(id).name.to_s %>
+        <%= find_products(id).price.to_s %>
         <%=label_tag 'Введите количестов товара' %>
         <%= text_field_tag id, '1', maxlength: 20%>
       <% end %>
@@ -22,8 +22,8 @@
     <% end %>
   <% else %>
     <% cookies[:cart].split(',').each do |id| %>
-      <%= find_products(id).to_s %>
-      <%= find_products_price(id).to_s %>
+      <%= find_products(id).name.to_s %>
+      <%= find_products(id).price.to_s %>
       <%=label_tag 'Введите количестов товара' %>
       <%= text_field_tag id ,'1', maxlength: 20%>
     <% end %>
