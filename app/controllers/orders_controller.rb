@@ -36,6 +36,7 @@ class OrdersController < ApplicationController
     @orders.each do |order|
       order.update_attributes(:confirm => true)
     end
+    OrderMailer.send_order(current_user, @orders).deliver
     redirect_to root_path, notice: 'Ваш заказ успешно подвержден'
   end
 end
