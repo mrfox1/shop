@@ -1,18 +1,18 @@
-<h1>Log In</h1>
-
-<%= form_tag('/sessions', method: :post) do |f| %>
-
-  <div class="field">
-    <%= label_tag :email %>
-    <%= email_field_tag :email %>
-  </div>
-
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-
-  <div class="actions">
-    <%= submit_tag 'Log In'%>
-  </div>
-<% end %>
+<div class="container">
+  <h2 class="form-signin-heading">
+    Вход
+  </h2>
+  <%= form_tag('/sessions', method: :post) do |f| %>
+    <div class="login_field">
+      <%= label_tag 'Электронная почта' %>
+      <%= email_field_tag :email, nil, class: 'form-control' %>
+    </div>
+    <div class="login_field">
+      <%= label_tag 'Пароль' %>
+      <%= password_field_tag :password, nil, class: 'form-control'  %>
+    </div>
+    <div class="user_action">
+      <%= submit_tag 'Log In', class: 'btn btn-lg btn-primary btn-block'%>
+    </div>
+  <% end %>
+</div>

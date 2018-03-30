@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  background: #EFEFEF;
+}
+
 .col-lg-3 {
   width: 20%;
   position: center;
@@ -24,4 +28,39 @@
   height: 100px;
   text-align: center;
   float: none;
+}
+
+.container {
+  width: 30%;
+  position: absolute;
+  right: 35%;
+  left: 35%;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.form-signin-heading {
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+.form-control {
+  width: 80%;
+  margin-left: 10%;
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  @include box-sizing(border-box);
+}
+
+.user_action {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.login_field label {
+  margin-left: 10%;
 }
