@@ -11,6 +11,11 @@ body {
   left: 8%;
 }
 
+ul.nav li a:hover {
+  color: #fff !important;
+  background: #999999 !important;
+}
+
 .categories {
   float: left;
   width: 10%;
