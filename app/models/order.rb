@@ -11,10 +11,12 @@
 #  amount     :integer
 #  sum        :decimal(, )
 #  confirm    :boolean
+#  number     :string
 #
 
 class Order < ApplicationRecord
   belongs_to :user
+  belongs_to :check
 
   scope :new_order, -> {Order.where({date: Date.today})}
 end
