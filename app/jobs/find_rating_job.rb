@@ -2,6 +2,8 @@ class FindRatingJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
-    # Do something later
+    category = Category.new
+    category.name = 'test'
+    category.save
   end
 end

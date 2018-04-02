@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
       @order.amount = params[id]
       @order.sum = @price * @order.amount
       @order.confirm = false
-      @order.save!
+      @order.save
     end
     cookies.delete :cart
     redirect_to orders_show_path
