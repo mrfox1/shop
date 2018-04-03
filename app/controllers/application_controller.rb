@@ -14,4 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user, :find_products, :find_category
+
+  FindRatingJob.perform_now
 end
