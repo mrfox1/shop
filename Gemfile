@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+#gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -60,6 +60,12 @@ gem 'bootstrap-sass'
 gem 'carrierwave'
 gem 'rmagick', '~> 2.16'
 gem 'kaminari'
+<<<<<<< HEAD
 gem 'daemons'
 gem 'sidekiq'
 gem 'country_select'
+=======
+#gem 'delayed_job_active_record'
+#gem 'daemons'
+gem 'sidekiq'
+>>>>>>> 4f817021f6124f258c864d3917c6f8a122fc00d4

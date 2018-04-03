@@ -80,6 +80,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
+<<<<<<< HEAD
     countries (1.2.5)
       currencies (~> 0.4.2)
       i18n_data (~> 0.7.0)
@@ -89,6 +90,9 @@ GEM
     crass (1.0.3)
     currencies (0.4.2)
     daemons (1.2.6)
+=======
+    crass (1.0.3)
+>>>>>>> 4f817021f6124f258c864d3917c6f8a122fc00d4
     devise (4.4.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -217,8 +221,11 @@ GEM
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.5, < 5)
+<<<<<<< HEAD
     sort_alphabetical (1.1.0)
       unicode_utils (>= 1.2.2)
+=======
+>>>>>>> 4f817021f6124f258c864d3917c6f8a122fc00d4
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -265,8 +272,11 @@ DEPENDENCIES
   byebug
   carrierwave
   coffee-rails (~> 4.2)
+<<<<<<< HEAD
   country_select
   daemons
+=======
+>>>>>>> 4f817021f6124f258c864d3917c6f8a122fc00d4
   devise
   jbuilder (~> 2.5)
   jquery-rails
