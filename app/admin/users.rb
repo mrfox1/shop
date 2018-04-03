@@ -3,7 +3,7 @@ ActiveAdmin.register User do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 permit_params :name, :sname, :email, :password, :phone, :country, :city,
-              :street, :number, :appartament, :postindex, :role
+              :street, :number, :appartament, :postindex, :role, :image
 #
 # or
 #

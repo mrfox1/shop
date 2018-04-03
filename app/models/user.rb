@@ -17,6 +17,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  role            :string
+#  image           :string
 #
 
 class User < ApplicationRecord
@@ -28,4 +29,6 @@ class User < ApplicationRecord
 
   validates :password_digest, length:{minimum: 6}
   validates_uniqueness_of :email
+
+  mount_uploader :image, UsersAvatarUploader
 end

@@ -1,0 +1,14 @@
+<h3>
+  <%= @user.name %>
+  <%= @user.sname %>
+</h3>
+<div class="avatar">
+  <% if @user.image.blank? %>
+    <%= image_tag 'none_avatar.jpg' %>
+    <br/>
+    <%= link_to 'Загрузить аватар' %>
+  <% else %>
+    <%= image_tag @user.image_url %>
+  <% end %>
+</div>
+<%= link_to 'Редактировать личные данные', edit_user_path, id: 'edit_user', remote: true %>

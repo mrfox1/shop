@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   end
 
   resources :categories, only: [:show, :index]
+  resources :users, only: [:show, :edit]
 
   root 'products#index'
   get 'cart' => 'products#show_cart'

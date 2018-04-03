@@ -30,7 +30,7 @@
               </li>
             <%end%>
             <li class="active">
-              <%= link_to current_user.name, class: "navbar_link" if current_user%>
+              <%= link_to current_user.name, user_path(id: current_user), class: "navbar_link" if current_user%>
             </li>
           </ul>
         </div>
