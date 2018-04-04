@@ -1,4 +1,8 @@
-<%= form_for (@user) do |f| %>
+<%= form_for user do |f| %>
+
+  <h3>
+    Измените нужные поля
+  </h3>
 
   <div class="field">
     <%= f.label :Имя %>
@@ -8,16 +12,6 @@
   <div class="field">
     <%= f.label :Фамилия %>
     <%= f.text_field :sname, class: 'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control' %>
   </div>
 
   <div class="field">
@@ -56,6 +50,6 @@
   </div>
 
   <div class="user_action">
-    <%= f.submit 'Создать аккаунт', class: 'btn btn-lg btn-primary btn-block' %>
+    <%= f.submit 'Редактировать личные данные', class: 'btn btn-lg btn-primary btn-block' %>
   </div>
 <% end %>

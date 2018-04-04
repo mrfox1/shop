@@ -4,18 +4,19 @@
 body {
   background: #EFEFEF;
 }
-
+/*_product*/
 .col-lg-3 {
   width: 20%;
   position: center;
   left: 8%;
 }
-
+/*all pages*/
 ul.nav li a:hover {
   color: #fff !important;
   background: #999999 !important;
 }
 
+/*products.index*/
 .categories {
   float: left;
   width: 10%;
@@ -34,7 +35,7 @@ ul.nav li a:hover {
   text-align: center;
   float: none;
 }
-
+/*registration and login*/
 .container {
   width: 30%;
   position: absolute;
@@ -44,11 +45,7 @@ ul.nav li a:hover {
   border: 1px solid rgba(0,0,0,0.1);
 }
 
-.form-signin-heading {
-  margin-left: 30px;
-  margin-bottom: 30px;
-}
-
+/* all forms*/
 .form-control {
   width: 80%;
   margin-left: 10%;
@@ -65,13 +62,31 @@ ul.nav li a:hover {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+/* sessions.login*/
+.form-signin-heading {
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
 
 .login_field label {
   margin-left: 10%;
 }
 
 /* user.show*/
+.avatar {
+  float: left;
+}
+
 .avatar img {
   width: 200px;
   height: 300px;
+}
+
+.edit_user {
+  width: 30%;
+  position: absolute;
+  right: 35%;
+  left: 35%;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
 }

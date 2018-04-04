@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: :update
 
   def show
     user_id = params[:id]
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
       redirect_to :back
       current_user
     else
-      redirect_to root_path
+      redirect_to root_path, notice: 'Что-то не так'
     end
   end
 
@@ -42,5 +43,9 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :sname, :email, :password, :phone, :country, :city,
                                  :street, :number, :appartament, :postindex, :role)
+  end
+
+  def set_user
+    @user = current_user
   end
 end

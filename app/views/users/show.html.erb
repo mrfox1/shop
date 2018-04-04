@@ -10,5 +10,6 @@
   <% else %>
     <%= image_tag @user.image_url %>
   <% end %>
+  <br/>
+  <%= link_to 'Редактировать личные данные', edit_user_path(@user), id: 'edit_user_link', remote: true %>
 </div>
-<%= link_to 'Редактировать личные данные', edit_user_path, id: 'edit_user', remote: true %>
