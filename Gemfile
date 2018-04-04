@@ -60,12 +60,6 @@ gem 'bootstrap-sass'
 gem 'carrierwave'
 gem 'rmagick', '~> 2.16'
 gem 'kaminari'
-<<<<<<< HEAD
 gem 'daemons'
 gem 'sidekiq'
 gem 'country_select'
-=======
-#gem 'delayed_job_active_record'
-#gem 'daemons'
-gem 'sidekiq'
->>>>>>> 4f817021f6124f258c864d3917c6f8a122fc00d4

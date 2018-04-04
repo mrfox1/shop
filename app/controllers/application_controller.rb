@@ -14,6 +14,4 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user, :find_products, :find_category
-
-  FindRatingJob.set(wait: 1.minute).perform_later
 end
