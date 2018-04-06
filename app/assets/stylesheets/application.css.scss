@@ -4,6 +4,10 @@
 body {
   background: #EFEFEF;
 }
+
+.none {
+  display: none;
+}
 /*_product*/
 .col-lg-3 {
   width: 20%;
@@ -89,4 +93,11 @@ ul.nav li a:hover {
   left: 35%;
   background-color: #fff;
   border: 1px solid rgba(0,0,0,0.1);
+
+  h3, label {
+    position: relative;
+    left: 10%;
+    width: 60%;
+    right: 10%;
+  }
 }
