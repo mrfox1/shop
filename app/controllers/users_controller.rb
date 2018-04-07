@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: :update
+  before_action :set_user, only: [:update, :download_avatar]
 
   def show
     user_id = params[:id]
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :sname, :email, :password, :phone, :country, :city,
-                                 :street, :number, :appartament, :postindex, :role)
+                                 :street, :number, :appartament, :postindex, :role, :image)
   end
 
   def set_user
