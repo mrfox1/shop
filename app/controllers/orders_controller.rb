@@ -32,9 +32,14 @@ class OrdersController < ApplicationController
   end
 
   def confirm_orders
+    hash_number = Digest::SHA256.hexdigest (Time.now.to_i + rand(1000000)).to_s
+    check = Check.new
+    check.date = Date.today
+    check.number = hash_number
+    check.save
     @orders = Order.all.new_order.where({user_id: current_user.id})
     @orders.each do |order|
-      order.update_attributes(:confirm => true)
+      order.update_attributes(:confirm => true, :number => hash_number)
     end
     OrderMailer.send_order(current_user, @orders).deliver
     redirect_to root_path, notice: 'Ваш заказ успешно подвержден'
