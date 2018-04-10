@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:update, :download_avatar]
+  before_action :set_user, only: :update
 
   def show
     user_id = params[:id]

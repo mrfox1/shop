@@ -1,11 +1,8 @@
 class OrdersController < ApplicationController
-  def index
-    @orders = Order.all
-  end
 
   def show
     @date = Date.today
-    @orders = Order.all.new_order.where({user_id: current_user.id})
+    @orders = Order.all.new_order.where({user_id: current_user.id, confirm: false})
     @orders.each do |order|
       @sum = @sum.to_f + order.sum
     end
@@ -36,12 +33,15 @@ class OrdersController < ApplicationController
     check = Check.new
     check.date = Date.today
     check.number = hash_number
-    check.save
-    @orders = Order.all.new_order.where({user_id: current_user.id})
-    @orders.each do |order|
-      order.update_attributes(:confirm => true, :number => hash_number)
+    check.user_id = current_user.id
+    if check.save
+      @orders = Order.all.new_order.where({user_id: current_user.id, confirm: false})
+      @orders.each do |order|
+        order.update_attributes(:confirm => true, :number => hash_number)
+      end
+      OrderMailer.send_order(current_user, @orders).deliver
+      redirect_to root_path, notice: 'Ваш заказ успешно подвержден'
+    else redirect_to :back, notice: 'Пожалуйста, повторите попытку'
     end
-    OrderMailer.send_order(current_user, @orders).deliver
-    redirect_to root_path, notice: 'Ваш заказ успешно подвержден'
   end
 end

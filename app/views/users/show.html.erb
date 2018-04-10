@@ -1,8 +1,8 @@
-<h3>
-  <%= @user.name %>
-  <%= @user.sname %>
-</h3>
 <div class="avatar">
+  <h3>
+    <%= @user.name %>
+    <%= @user.sname %>
+  </h3>
   <% if @user.image.blank? %>
     <%= image_tag 'none_avatar.jpg' %>
   <% else %>
@@ -10,4 +10,39 @@
   <% end %>
   <br/>
   <%= link_to 'Редактировать личные данные', edit_user_path(@user), id: 'edit_user_link', remote: true %>
+</div>
+<div class="orders">
+  <% if have_checks? %>
+    <h3>
+      Подтвержденные заказы
+    </h3>
+    <% if count == 1 %>
+      <p>
+        Дата заказа:
+        <%= users_check.date %>
+        <span>
+          Код заказа:
+          <%= users_check.number %>
+        </span>
+      </p>
+      <%= product_name(users_confirm_order(users_check.number).product_id) %>
+      <%= users_confirm_order(users_check.number).sum %>
+    <% else %>
+      <% users_checks.each do |check| %>
+        <p>
+          Дата заказа:
+          <%= check.date %>
+          <span>
+          Код заказа:
+            <%= check.number %>
+        </span>
+        </p>
+        <% users_confirm_orders(check.number).each do |order| %>
+          <%= product_name(order.product_id) %>
+          <%= order.sum %>
+          <br/>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
 </div>
