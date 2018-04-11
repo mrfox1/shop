@@ -12,7 +12,7 @@
   <%= link_to 'Редактировать личные данные', edit_user_path(@user), id: 'edit_user_link', remote: true %>
 </div>
 <div class="orders">
-  <% if have_checks? %>
+  <% if checks? %>
     <h3>
       Подтвержденные заказы
     </h3>
@@ -44,5 +44,22 @@
         <% end %>
       <% end %>
     <% end %>
+  <% end %>
+  <% if orders? %>
+    <h3>
+      Неподтвержденные заказы
+    </h3>
+    <% ordercount.each do |order| %>
+      <p>
+        Дата заказа:
+        <%= order.date %>
+      </p>
+      <%= product_name(order.product_id) %>
+      <%= order.amount %>
+      <%= order.sum %>
+    <% end %>
+    <p>
+      <%= link_to 'Подтвердить заказы', orders_show_path %>
+    </p>
   <% end %>
 </div>

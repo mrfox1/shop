@@ -1,5 +1,5 @@
 module UsersHelper
-  def have_checks?
+  def checks?
     if Check.find_by_user_id(current_user.id).present?
       true
     else
@@ -24,10 +24,24 @@ module UsersHelper
   end
 
   def users_confirm_orders(check)
-      Order.all.where({user_id: current_user.id, number: check})
+    Order.all.where({user_id: current_user.id, number: check})
   end
 
   def product_name(id)
     Product.find(id).name
   end
+
+  def orders?
+    if Order.all.where({user_id: current_user.id, confirm: false}).present?
+      true
+    else
+      false
+    end
+  end
+
+  def ordercount
+    Order.all.where({user_id: current_user.id, confirm: false})
+  end
+
+
 end

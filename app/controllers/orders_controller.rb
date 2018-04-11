@@ -1,7 +1,6 @@
 class OrdersController < ApplicationController
 
   def show
-    @date = Date.today
     @orders = Order.all.new_order.where({user_id: current_user.id, confirm: false})
     @orders.each do |order|
       @sum = @sum.to_f + order.sum
@@ -37,7 +36,7 @@ class OrdersController < ApplicationController
     if check.save
       @orders = Order.all.new_order.where({user_id: current_user.id, confirm: false})
       @orders.each do |order|
-        order.update_attributes(:confirm => true, :number => hash_number)
+        order.update_attributes(:confirm => true, :number => hash_number, :date => Date.today)
       end
       OrderMailer.send_order(current_user, @orders).deliver
       redirect_to root_path, notice: 'Ваш заказ успешно подвержден'

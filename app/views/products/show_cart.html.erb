@@ -18,7 +18,7 @@
         <%= text_field_tag id, '1', maxlength: 20%>
       <% end %>
       <br>
-      <%= submit_tag 'Оформить заказ', data: { confirm: 'Вы уверены?' }%>
+      <%= submit_tag 'Оформить заказ', data: { confirm: 'Вы уверены?' } %>
     <% end %>
   <% else %>
     <% cookies[:cart].split(',').each do |id| %>
