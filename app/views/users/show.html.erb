@@ -28,7 +28,7 @@
       <%= product_name(users_confirm_order(users_check.number).product_id) %>
       <%= users_confirm_order(users_check.number).sum %>
     <% else %>
-      <% users_checks.each do |check| %>
+      <% users_checks.find_each do |check| %>
         <p>
           Дата заказа:
           <%= check.date %>
@@ -37,7 +37,7 @@
             <%= check.number %>
         </span>
         </p>
-        <% users_confirm_orders(check.number).each do |order| %>
+        <% users_confirm_orders(check.number).find_each do |order| %>
           <%= product_name(order.product_id) %>
           <%= order.sum %>
           <br/>
@@ -49,7 +49,7 @@
     <h3>
       Неподтвержденные заказы
     </h3>
-    <% ordercount.each do |order| %>
+    <% ordercount.find_each do |order| %>
       <p>
         Дата заказа:
         <%= order.date %>
@@ -60,6 +60,17 @@
     <% end %>
     <p>
       <%= link_to 'Подтвердить заказы', orders_show_path %>
+    </p>
+  <% end %>
+  <% if cookies[:cart].present? %>
+    <h3>
+      Товары в корзине
+    </h3>
+    <% cookies[:cart].split(',').each do |id| %>
+      <%= product_name(id) %>
+    <% end %>
+    <p>
+      <%= link_to 'Купить!', cart_path %>
     </p>
   <% end %>
 </div>

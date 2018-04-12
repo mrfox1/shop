@@ -1,10 +1,6 @@
 module UsersHelper
   def checks?
-    if Check.find_by_user_id(current_user.id).present?
-      true
-    else
-      false
-    end
+    Check.find_by_user_id(current_user.id).present?
   end
 
   def count
@@ -32,11 +28,7 @@ module UsersHelper
   end
 
   def orders?
-    if Order.all.where({user_id: current_user.id, confirm: false}).present?
-      true
-    else
-      false
-    end
+    Order.all.where({user_id: current_user.id, confirm: false}).present?
   end
 
   def ordercount
