@@ -13,5 +13,22 @@ class ApplicationController < ActionController::Base
     Category.find(id).name
   end
 
-  helper_method :current_user, :find_products, :find_category
+  def checks?
+    Check.find_by(user_id: current_user.id).present?
+  end
+
+  def users_check
+    Check.find_by(user_id: current_user.id)
+  end
+
+  def users_confirm_order(check)
+    Order.find_by(number: check)
+  end
+
+  def product_name(id)
+    Product.find(id).name
+  end
+
+  helper_method :current_user, :find_products, :find_category, :checks?,
+                :users_check, :users_confirm_order, :product_name
 end
