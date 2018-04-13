@@ -14,6 +14,6 @@ class Assessment < ApplicationRecord
   belongs_to :product
   belongs_to :user
 
-  validates_presence_of :user_id, :product_id, :value
+  validates :user_id, :product_id, :value, presence: true
   validates_numericality_of :value, :greater_than => 0, :less_than => 6
 end

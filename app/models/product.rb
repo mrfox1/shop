@@ -20,5 +20,8 @@ class Product < ApplicationRecord
   has_many :comments
   has_many :assessments
 
+  validates :name, :price, presence: true
+  validates :name, uniqueness: true
+
   mount_uploader :image, ProductImageUploader
 end

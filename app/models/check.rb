@@ -13,6 +13,6 @@
 class Check < ApplicationRecord
   has_many :orders
 
-  validates_presence_of :date, :number
-  validates_uniqueness_of :number
+  validates :date, :number, presence: true
+  validates :number, uniqueness: true
 end

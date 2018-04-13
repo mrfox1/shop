@@ -17,5 +17,7 @@
 class Order < ApplicationRecord
   belongs_to :user
 
+  validates :date, :product_id, :user_id, :sum, presence: true
+
   scope :new_order, -> {Order.where({date: Date.today})}
 end

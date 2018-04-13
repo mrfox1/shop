@@ -15,5 +15,8 @@ class Category < ApplicationRecord
   has_many :product_categories
   has_many :products, through: :product_categories
 
+  validates :name, :position, presence: true
+  validates :name, uniqueness: true
+
   scope :sorted, -> {order(:position)}
 end
