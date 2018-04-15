@@ -32,6 +32,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :find_products, :find_category, :checks?,
                 :users_check, :users_confirm_order, :product_name
 
-  FindRatingWorker.perform_in(1.minute)
+
+  FindRatingWorker.perform_at(Date.tomorrow.midnight)
 
 end
