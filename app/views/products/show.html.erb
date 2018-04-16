@@ -8,6 +8,15 @@
   <%= link_to (image_tag ('star1.png')), vote_product_path(@product, vote: 3), method: :post,remote: true %>
   <%= link_to (image_tag ('star1.png')), vote_product_path(@product, vote: 4), method: :post,remote: true %>
   <%= link_to (image_tag ('star1.png')), vote_product_path(@product, vote: 5), method: :post,remote: true %>
+  <span>
+    Рейтинг товара:
+    <%= @product.rating %>
+  </span>
+  <span>
+    (Количеcтво голосов:
+    <%= count_assessments(@product) %>
+    )
+  </span>
   <br/>
 <%= image_tag @product.image_url %>
 <h2>
