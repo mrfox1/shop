@@ -1,4 +1,13 @@
-<h1>Категория <%= find_category(params[:id]) %> </h1>
+<h1>
+  Категория <%= find_category(params[:id]) %>
+</h1>
+<div class="categories">
+  <p>
+    Категории:
+  </p>
+  <%= render 'categories/categories' %>
+  <br>
+</div>
 <% @products.each do |product| %>
   <%= render partial: 'products/product', locals: {product: find_products(product.product_id)} %>
 <% end %>

@@ -4,6 +4,7 @@ class FindRatingWorker
   def perform(*args)
     products = Product.all
     products.find_each do |product|
+      @assessment = 0
       if product.assessments.present?
         @assessments = product.assessments
         @assessments.each do |assessment|

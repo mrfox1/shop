@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.page(params[:page])
+    @products = Product.page(params[:page]).best
     @categories = Category.all.sorted
   end
 
@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
   def add_to_cart
     product_id = params[:id]
     if cookies[:cart].present? == false
-      cookies[:cart] =product_id
+      cookies[:cart] = product_id
     end
     if can_add_to_cart?
       products = cookies[:cart].split(',')
