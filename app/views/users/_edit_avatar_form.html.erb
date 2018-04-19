@@ -1,0 +1,12 @@
+<%= form_for user do |f| %>
+
+  <%= image_tag 'close.png', class: 'close' %>
+  <br/>
+  <div class="field">
+    <%= f.file_field :image, class: 'form-control' %>
+  </div>
+
+  <div class="user_action">
+    <%= f.submit 'Загрузить аватар', class: 'btn btn-lg btn-primary btn-block' %>
+  </div>
+<% end %>

@@ -10,6 +10,8 @@
   <% end %>
   <br/>
   <%= link_to 'Редактировать личные данные', edit_user_path(@user), id: 'edit_user_link', remote: true %>
+  <br/>
+  <%= link_to 'Загрузить новый аватар', edit_user_path(@user, avatar: '1'), id: 'new_avatar_link', remote: true %>
 </div>
 <div class="orders">
   <% if checks? %>

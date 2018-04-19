@@ -1,2 +1,5 @@
-$('.avatar').after('<%= j render 'edit_form', user: current_user %>');
-$('#edit_user_link').addClass('none');
+<% if params[:avatar].present? %>
+  $('.avatar').after('<%= j render 'edit_avatar_form', user: current_user %>');
+<% else %>
+  $('.avatar').after('<%= j render 'edit_form', user: current_user %>');
+<% end %>
