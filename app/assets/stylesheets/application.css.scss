@@ -13,6 +13,10 @@ body {
   width: 20%;
   position: center;
   left: 8%;
+
+  .btn {
+    margin-left: 7%;
+  }
 }
 /*all pages*/
 ul.nav li a:hover {
@@ -58,7 +62,6 @@ ul.nav li a:hover {
   height: auto;
   padding: 10px;
   @include box-sizing(border-box);
-  z-index: 1;
 }
 
 .user_action {
@@ -110,4 +113,23 @@ ul.nav li a:hover {
 
 form {
   z-index: 1;
+}
+
+/* products.show_cart*/
+.cart {
+  width: 40%;
+  margin-left: 30%;
+
+  h1 {
+    margin-left: 35%;
+  }
+
+  input {
+    width: 30px;
+  }
+
+  .btn {
+    margin-left: 30%;
+    width: 25%;
+  }
 }

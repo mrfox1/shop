@@ -61,7 +61,7 @@
       <%= order.sum %>
     <% end %>
     <p>
-      <%= link_to 'Подтвердить заказы', orders_show_path %>
+      <%= button_to 'Подтвердить заказы', orders_show_path, method: :get, class: 'btn btn-primary' %>
     </p>
   <% end %>
   <% if cookies[:cart].present? %>
@@ -72,7 +72,7 @@
       <%= product_name(id) %>
     <% end %>
     <p>
-      <%= link_to 'Купить!', cart_path %>
+      <%= button_to 'Купить!', cart_path, method: :get, class: 'btn btn-primary' %>
     </p>
   <% end %>
 </div>

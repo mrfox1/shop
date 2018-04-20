@@ -1,38 +1,41 @@
-<h1>Cart</h1>
-<% if @count_of_products == 0%>
-  <p>
-    Корзина пуста
-  </p>
-<% else %>
-  <p >
-    Количество товара в корзине <%= @count_of_products %>
-  </p>
-<% end %>
-<% if cookies[:cart].present? %>
-  <% if current_user.present? %>
-    <%= form_tag(orders_create_path, method: 'get') do %>
+<div class="cart">
+  <h1>Корзина</h1>
+  <% if @count_of_products == 0%>
+    <h3>
+      Корзина пуста
+    </h3>
+  <% else %>
+    <h4>
+      Количество товара в корзине <%= @count_of_products %>
+    </h4>
+  <% end %>
+  <% if cookies[:cart].present? %>
+    <% if current_user.present? %>
+      <%= form_tag(orders_create_path, method: 'get') do %>
+        <% cookies[:cart].split(',').each do |id| %>
+          <%= find_products(id).name.to_s %>
+          <%= find_products(id).price.to_s %>
+          <br/>
+          <%=label_tag 'Введите количестов товара' %>
+          <%= text_field_tag id, '1', maxlength: 20%>
+          <br/>
+        <% end %>
+        <br/>
+        <%= submit_tag 'Оформить заказ!', class: 'btn btn-primary', data: { confirm: 'Вы уверены?' } %>
+      <% end %>
+    <% else %>
       <% cookies[:cart].split(',').each do |id| %>
         <%= find_products(id).name.to_s %>
         <%= find_products(id).price.to_s %>
         <%=label_tag 'Введите количестов товара' %>
-        <%= text_field_tag id, '1', maxlength: 20%>
+        <%= text_field_tag id ,'1', maxlength: 20%>
       <% end %>
-      <br>
-      <%= submit_tag 'Оформить заказ', data: { confirm: 'Вы уверены?' } %>
+      <%= button_to 'Оформить заказ!', registration_path,  method: :get, class: 'btn btn-primary' %>
     <% end %>
-  <% else %>
-    <% cookies[:cart].split(',').each do |id| %>
-      <%= find_products(id).name.to_s %>
-      <%= find_products(id).price.to_s %>
-      <%=label_tag 'Введите количестов товара' %>
-      <%= text_field_tag id ,'1', maxlength: 20%>
-    <% end %>
-    <%= button_to 'Оформить заказ', registration_path,  method: :get%>
+    <br/>
+    <h4>
+      Общая сумма корзины <%= @sum %>
+    </h4>
+    <%= button_to 'Очистить корзину', clear_cart_path, method: :get, class: 'btn btn-primary' %>
   <% end %>
-  <br/>
-  <p>
-    Общая сумма корзины <%= @sum %>
-  </p>
-  <%= link_to 'Очистить корзину', clear_cart_path %>
-<% end %>
-
+</div>
