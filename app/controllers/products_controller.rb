@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
   end
 
   def show_cart
+    @products = Product.page(params[:page]).best
     if cookies[:cart].present?
       cookies[:cart].split(',').each do |product|
         @sum = @sum.to_f + Product.find(product).price
