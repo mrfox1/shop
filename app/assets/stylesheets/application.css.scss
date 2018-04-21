@@ -24,6 +24,22 @@ ul.nav li a:hover {
   background: #999999 !important;
 }
 
+.footer {
+  position: fixed;
+  height: 100px;
+  bottom: 10px;
+
+  .copyrights {
+    margin-top: 25px;
+  }
+
+  .bg-lightgray {
+    background-color: LightGray;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    padding: 10px;
+  }
+}
+
 /*products.index / categories.show*/
 .categories {
   float: left;
