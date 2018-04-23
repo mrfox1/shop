@@ -25,9 +25,11 @@ ul.nav li a:hover {
 }
 
 .footer {
-  position: fixed;
+  position: absolute;
   height: 100px;
-  bottom: 10px;
+  bottom: -200px;
+  right: 0;
+  width: 100vw;
 
   .copyrights {
     margin-top: 25px;
@@ -76,7 +78,7 @@ ul.nav li a:hover {
   position: relative;
   font-size: 16px;
   height: auto;
-  padding: 10px;
+  padding: 5px;
   @include box-sizing(border-box);
 }
 
