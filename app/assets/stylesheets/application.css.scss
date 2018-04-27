@@ -63,9 +63,11 @@ ul.nav li a:hover {
 
   .category {
     border: 1px solid seashell;
+    background: seashell;
 
     a{
       display:block;
+      text-decoration: none;
     }
   }
 

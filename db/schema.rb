@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410120724) do
+ActiveRecord::Schema.define(version: 20180427162558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(version: 20180410120724) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "ancestor_descendant_categories", force: :cascade do |t|
+    t.integer  "category_id"
+    t.integer  "descendant"
+    t.integer  "level"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "assessments", force: :cascade do |t|
@@ -94,6 +102,15 @@ ActiveRecord::Schema.define(version: 20180410120724) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+  end
+
+  create_table "descendant_categories", force: :cascade do |t|
+    t.integer  "parent"
+    t.integer  "category_id"
+    t.integer  "level"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_descendant_categories_on_category_id", using: :btree
   end
 
   create_table "orders", force: :cascade do |t|
@@ -150,6 +167,7 @@ ActiveRecord::Schema.define(version: 20180410120724) do
   add_foreign_key "assessments", "users"
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
+  add_foreign_key "descendant_categories", "categories"
   add_foreign_key "orders", "users"
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products"
