@@ -1,7 +1,18 @@
 <ul>
   <% @categories.each do |category| %>
-    <li class="category">
-      <%= link_to category.name, category %>
-    </li>
+    <% if ancestor?(category) %>
+      <li class="category">
+        <%= link_to category.name, category %>
+      </li>
+      <% if descendant?(category)%>
+        <ul>
+        <% print_descendants(category).each do |descendant| %>
+          <li class="category l2">
+            <%= link_to find_category(descendant.category_id), category_path(id: descendant.category_id)%>
+          </li>
+        <% end %>
+        </ul>
+      <% end %>
+    <% end %>
   <% end %>
 </ul>

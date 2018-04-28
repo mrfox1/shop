@@ -2,11 +2,13 @@
 #
 # Table name: categories
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  position   :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id             :integer          not null, primary key
+#  name           :string
+#  position       :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  hasDescendands :boolean
+#  hasAncestor    :boolean
 #
 
 class Category < ApplicationRecord
