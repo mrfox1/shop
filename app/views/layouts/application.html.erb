@@ -34,6 +34,16 @@
               <%= link_to current_user.name, user_path(id: current_user), class: "navbar_link" if current_user%>
             </li>
           </ul>
+          <%= form_tag( nil, :class => 'search') do %>
+            <div class="form-row">
+              <div class="form-group col-md-10">
+                <%= text_field_tag nil, nil, maxlength: 20, placeholder:"Искать здесь...", class:"form-control" %>
+              </div>
+              <div class="form-group col-md-2">
+                <%= submit_tag 'Найти', class: 'btn btn-primary'%>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </nav>

@@ -24,12 +24,29 @@ ul.nav li a:hover {
   background: #999999 !important;
 }
 
+.search {
+  margin-left: 23%;
+  width: 75%;
+  .form-group {
+    margin: 0;
+  }
+  .form-control {
+    margin-top: 8px;
+    margin-left: 0;
+    width: 100%;
+  }
+  .btn {
+    margin-top: 8px;
+    width: 80%;
+  }
+}
+
 .footer {
   position: absolute;
   height: 100px;
   bottom: -200px;
   right: 0;
-  width: 100vw;
+  width: 100%;
 
   .copyrights {
     margin-top: 25px;
@@ -103,7 +120,7 @@ ul.nav li a:hover {
   right: 35%;
   left: 35%;
   background-color: #fff;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.1);;
 }
 
 /* all forms*/
