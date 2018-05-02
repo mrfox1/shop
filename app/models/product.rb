@@ -13,6 +13,9 @@
 #
 
 class Product < ApplicationRecord
+  include PgSearch
+  pg_search_scope :search_everywhere, against: [:name, :description]
+
   paginates_per 8
 
   scope :best, -> { where('rating >= 4.5')}

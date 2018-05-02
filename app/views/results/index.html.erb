@@ -1,0 +1,12 @@
+<div class="categories col-sm-2 col-md-2 col-lg-2">
+  <h3>
+    Категории:
+  </h3>
+  <%= render 'categories/categories' %>
+  <br>
+</div>
+<h3>Результаты поиска по запросу <em><%= params[:query]%></em></h3>
+<%= results? %>
+<% @search_results.each do |result| %>
+  <%= render partial: 'products/product', locals: {product: find_products(result.id)} %>
+<% end %>
